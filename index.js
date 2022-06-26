@@ -61,6 +61,8 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
   })
 })
 
+app.get('/tags', PostController.getLastTags)
+
 app.get('/posts', PostController.getAll)
 app.get('/posts/:id', PostController.getOne)
 app.post(
@@ -78,6 +80,7 @@ app.patch(
   handelValidationErrors,
   PostController.update
 )
+app.get('/posts/tags', PostController.getLastTags)
 
 app.listen(4444, err => {
   if (err) {
